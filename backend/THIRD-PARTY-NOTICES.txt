@@ -1,0 +1,35 @@
+CareerPulse Windows x64 executable
+
+Built from the accompanying main.cpp with GCC/G++ 14.2.0, using:
+
+cpp-httplib v0.66.0
+https://github.com/yhirose/cpp-httplib/tree/v0.66.0
+MIT license: licenses/httplib-LICENSE
+
+JSON for Modern C++ v3.12.0
+https://github.com/nlohmann/json/tree/v3.12.0
+MIT license: licenses/json-LICENSE
+Downloaded single-header SHA-256:
+aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63
+
+SQLite 3.54.1
+https://www.sqlite.org/2026/sqlite-amalgamation-3540100.zip
+SQLite is in the public domain: https://www.sqlite.org/copyright.html
+
+GCC compiler runtime libraries (static linkage)
+https://gcc.gnu.org/git/?p=gcc.git;a=tree;hb=releases/gcc-14.2.0
+License: licenses/GPL-3.0.txt with licenses/GCC-RUNTIME-EXCEPTION.txt
+
+MinGW-w64 winpthreads runtime (static linkage)
+https://github.com/mingw-w64/mingw-w64/tree/master/mingw-w64-libraries/winpthreads
+License: licenses/winpthreads-COPYING.txt
+
+Build: SQLite was compiled as C with -O2 -DSQLITE_THREADSAFE=1.
+main.cpp was compiled with -std=c++17 -O2 -static -pthread, then linked with
+the SQLite object, -lws2_32, -lcrypt32, -lbcrypt and -lwinhttp. No TLS macros were defined.
+No machine-specific frontend path was compiled into the executable; launch
+from backend so its existing ../frontend search finds the sibling frontend.
+
+The included CMakeLists.txt and vcpkg.json remain an alternative source build
+method and resolve dependencies using the user's configured vcpkg registry.
+

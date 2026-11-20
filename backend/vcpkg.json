@@ -1,0 +1,9 @@
+{
+  "name": "careerpulse",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "sqlite3",
+    "nlohmann-json",
+    "cpp-httplib"
+  ]
+}
